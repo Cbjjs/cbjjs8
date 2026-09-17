@@ -5,7 +5,7 @@ import { Role } from '../types';
 import { SidebarProfile } from './SidebarProfile';
 import { AnnualMembershipRenewalBanner } from './AnnualMembershipRenewalBanner';
 import {
-  Menu, X, Users, Calendar, LogOut, Sun, Moon, Shield, Award, CreditCard, Building, School, Settings, UserCheck, UserPlus, Printer, Contact, Scan, BookOpen, FileBadge, Mail, UsersRound
+  Menu, X, Users, Calendar, LogOut, Sun, Moon, Shield, Award, CreditCard, Building, School, Settings, UserCheck, UserPlus, Printer, Contact, Scan, BookOpen, FileBadge, Mail, UsersRound, HeartPulse
 } from 'lucide-react';
 
 interface LayoutProps {
@@ -69,6 +69,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
          { id: 'admin-academies', label: 'Gestão Academias', icon: School, roles: [Role.ADMIN, Role.GESTOR] },
          { id: 'admin-certificates', label: 'Certificados Academias', icon: FileBadge, roles: [Role.ADMIN, Role.GESTOR] },
          { id: 'admin-id-cards', label: 'Carteirinhas', icon: Printer, roles: [Role.ADMIN] },
+         { id: 'admin-membership-benefits', label: 'Gestão Benefícios', icon: HeartPulse, roles: [Role.ADMIN] },
 
          { id: 'admin-events', label: 'Gestão Eventos', icon: Calendar, roles: [Role.ADMIN, Role.GESTOR] },
          { id: 'admin-settings', label: 'Gestão Informações', icon: Settings, roles: [Role.ADMIN] },

@@ -17,6 +17,7 @@ import { AdminEventAccess } from './pages/AdminEventAccess';
 import { AdminContactManagement } from './pages/AdminContactManagement';
 import { AdminResend } from './pages/AdminResend';
 import { AdminTeam } from './pages/AdminTeam';
+import { AdminMembershipBenefits } from './pages/AdminMembershipBenefits';
 import { CustomLoader } from './components/CustomLoader';
 import { Role } from './types';
 import { WifiOff } from 'lucide-react';
@@ -37,7 +38,7 @@ const AppContent: React.FC = () => {
   useEffect(() => {
     if (isAuthenticated && user) {
         const gestorPages = ['admin-users', 'admin-academies', 'admin-certificates', 'admin-event-access', 'admin-all-users'];
-        const adminOnlyPages = ['admin-team', 'admin-professors', 'admin-events', 'admin-settings', 'admin-id-cards', 'admin-contacts', 'admin-resend'];
+        const adminOnlyPages = ['admin-team', 'admin-professors', 'admin-events', 'admin-settings', 'admin-id-cards', 'admin-contacts', 'admin-resend', 'admin-membership-benefits'];
         
         const isGestorPage = gestorPages.includes(currentPage);
         const isAdminOnlyPage = adminOnlyPages.includes(currentPage);
@@ -89,6 +90,7 @@ const AppContent: React.FC = () => {
       case 'admin-academies': return (user?.role === Role.ADMIN || user?.role === Role.GESTOR) ? <AdminPanel view="academies" /> : <Dashboard />;
       case 'admin-certificates': return (user?.role === Role.ADMIN || user?.role === Role.GESTOR) ? <AdminPanel view="academy-certificates" /> : <Dashboard />;
       case 'admin-id-cards': return user?.role === Role.ADMIN ? <AdminIDCards /> : <Dashboard />;
+      case 'admin-membership-benefits': return user?.role === Role.ADMIN ? <AdminMembershipBenefits /> : <Dashboard />;
 
       case 'admin-events': return (user?.role === Role.ADMIN || user?.role === Role.GESTOR) ? <AdminPanel view="events" /> : <Dashboard />;
       case 'admin-settings': return user?.role === Role.ADMIN ? <AdminPanel view="settings" /> : <Dashboard />;
