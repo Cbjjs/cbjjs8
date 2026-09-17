@@ -575,7 +575,7 @@ export const AdminMembershipBenefits: React.FC = () => {
                     </div>
                     {sectionCards.length >= 4 && <span className="text-xs font-bold text-amber-600">Limite atingido</span>}
                   </div>
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-4">
                     {sectionCards.map(card => {
                       const draft = getCardDraft(card);
                       return (
@@ -630,11 +630,11 @@ export const AdminMembershipBenefits: React.FC = () => {
       )}
 
       {hasPendingChanges && (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-gray-200 bg-white/95 p-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] backdrop-blur dark:border-slate-700 dark:bg-slate-900/95 sm:p-4">
+        <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-gray-200 bg-white/95 px-4 py-3 shadow-[0_-8px_30px_rgba(15,23,42,0.12)] backdrop-blur dark:border-slate-700 dark:bg-slate-900/95 md:left-[280px] sm:px-6 sm:py-4">
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-            <div>
-              <p className="text-sm font-black dark:text-white">Alterações pendentes</p>
-              <p className="hidden text-xs text-gray-500 sm:block">Revise o conteúdo e salve tudo de uma vez.</p>
+            <div className="min-w-0 flex-1 overflow-hidden">
+              <p className="break-words text-sm font-black dark:text-white">Alterações pendentes</p>
+              <p className="hidden break-words text-xs text-gray-500 sm:block">Revise o conteúdo e salve tudo de uma vez.</p>
             </div>
             <button type="button" onClick={handleSaveAll} disabled={saving} className="flex shrink-0 items-center gap-2 rounded-xl bg-cbjjs-blue px-5 py-3 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-900/20 disabled:opacity-60 sm:px-7">
               {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}
